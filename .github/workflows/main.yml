@@ -30,7 +30,7 @@ jobs:
 
       - name: Build APK
         env:
-          GRADLE_OPTS: "-Xmx4g -XX:MaxMetaspaceSize=1024m"
+          GRADLE_OPTS: "-Xmx6g -XX:MaxMetaspaceSize=2048m -Dorg.gradle.jvmargs=-Xmx6g -XX:MaxMetaspaceSize=2048m"
         run: flutter build apk --release
 
       - name: Upload APK
