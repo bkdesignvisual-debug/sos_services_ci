@@ -28,10 +28,12 @@ jobs:
       - name: Installer les dépendances
         run: flutter pub get
 
-      - name: Compiler l'APK
-        run: flutter build apk --release
-
-      - name: Envoyer l'APK
+       - name: Compiler l'APK
+         env:
+             GRADLE_OPTS: "-Xmx4g -XX:MaxMetaspaceSize=1024m"
+         run: flutter build apk --release
+          
+        - name: Envoyer l'APK
         uses: actions/upload-artifact@v4
         with:
           name: app-release
